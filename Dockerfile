@@ -10,7 +10,6 @@ ENV TEST false
 RUN apt update && apt install certbot python3-certbot-apache -y
 COPY createssl.sh /usr/local/bin
 ENTRYPOINT [ "createssl.sh" ]
-WORKDIR /var/www/html
 EXPOSE 443
 EXPOSE 80
 CMD ["apache2-foreground"]
