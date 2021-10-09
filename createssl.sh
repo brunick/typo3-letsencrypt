@@ -3,8 +3,12 @@ FILE=/root/ssl
 if test -f "$FILE"; then
     echo "done"
 else 
-    certbot --apache -n --agree-tos --email ${EMAIL} --domains ${DOMAIN}  --redirect
-    touch $FILE
+    if [ "$TEST" == "true" ] then
+        certbot --apache -n --agree-tos --email ${EMAIL} --domains ${DOMAIN}  --redirect --test-cert
+    else
+        certbot --apache -n --agree-tos --email ${EMAIL} --domains ${DOMAIN}  --redirect 
+        touch $FILE
+    fi
 fi
 
 /etc/init.d/apache2 reload
