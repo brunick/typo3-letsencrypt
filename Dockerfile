@@ -5,7 +5,7 @@ LABEL maintainer="Jannick Bruhns <docker@nyze.one>"
 
 ENV EMAIL no@no.com
 ENV DOMAIN www.example.com
-ENV TEST false
+ENV TEST true
 # Install TYPO3
 RUN apt update && apt install certbot python3-certbot-apache -y
 COPY createssl.sh /usr/local/bin
