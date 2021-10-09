@@ -12,7 +12,7 @@ ENV DOMAIN www.example.com
 RUN apt-get update && \
         apt install certbot python3-certbot-apache -y
 COPY createSSL.sh /usr/local/bin
-ENTRYPOINT [ "createSSL.sh" ]
+ENTRYPOINT [ "/usr/local/bin/createSSL.sh" ]
 WORKDIR /var/www/html
 EXPOSE 443
 EXPOSE 80
