@@ -8,7 +8,6 @@ ENV DOMAIN www.example.com
 ENV TEST false
 # Install TYPO3
 RUN apt update && apt install certbot python3-certbot-apache -y
-RUN echo $PATH
 COPY createssl.sh /usr/local/bin
 ENTRYPOINT [ "createssl.sh" ]
 EXPOSE 443
